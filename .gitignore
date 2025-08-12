@@ -23,4 +23,3 @@ dist-ssr
 *.sln
 .env
 *.sw?
-firebase.js
