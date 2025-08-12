@@ -5,9 +5,11 @@ import Player from "./Pages/Player/Player";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
 
 
 function App(){
+
 
   const navigate = useNavigate();
   useEffect( () => {
@@ -21,9 +23,10 @@ function App(){
       }
     })
   },[])
-  
+
   return(
     <div>
+    <ToastContainer />
     <Routes>
       <Route path= "/" element={<Home />}/>
       <Route path= "/login" element={<Login />}/>
