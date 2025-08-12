@@ -1,18 +1,22 @@
 import './Login.css'
 import logo from '../../assets/logo.png'
+import { useState } from 'react';
 
 function Login() {
+  const [signState, setSignState] = useState('Sign In');
+
   return (
     <div className="login">
       <img src={logo} className='login-logo' />
       <div className="login-form">
-        <h1>Sign Up</h1>
+        <h1>{signState}</h1>
         <form action="">
-
-          <input type="text" placeholder='Your name' />
+        {
+          signState === "Sign Up" ? <input type="text" placeholder='Your name' /> : <></>
+        }
           <input type="email" placeholder='email' />
           <input type="password" placeholder='Enter a password' />
-          <button>Sign Up</button>
+          <button>{signState}</button>
 
           <div className="form-help">
             <div className="remember">
@@ -24,8 +28,11 @@ function Login() {
 
         </form>
         <div className="form-switch">
-          <p>New to Netflix?<span>Sign Up Now</span></p>
-          <p>Already have account?<span>Sign In Now</span></p>
+        {
+          signState === "Sign In" ? <p>New to Netflix?<span
+          onClick={ () => setSignState("Sign Up")}>Sign Up Now</span></p> 
+          : <p>Already have account?<span onClick={ () => setSignState("Sign In")}>Sign In Now</span></p>
+        }          
         </div>
       </div>
     </div>
