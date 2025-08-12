@@ -1,10 +1,27 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import Player from "./Pages/Player/Player";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebase";
+import { useEffect } from "react";
 
 
 function App(){
+
+  const navigate = useNavigate();
+  useEffect( () => {
+    onAuthStateChanged(auth, async(user) => {
+      if(user){
+        navigate('/')
+        console.log("Logged In");
+      }else{
+        console.log("Logged Out");
+        navigate('/login')
+      }
+    })
+  },[])
+  
   return(
     <div>
     <Routes>

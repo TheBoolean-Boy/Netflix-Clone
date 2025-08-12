@@ -9,6 +9,10 @@
   color: #e5e5e5;
   z-index: 20;
 }
+.navbar.dark-nav{
+  /* background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 80%, transparent); */
+  background: #141414;
+}
 
 .navbar-left{
   display: flex;

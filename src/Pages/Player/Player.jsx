@@ -3,6 +3,7 @@ import back_arrow_icon from '../../assets/back_arrow_icon.png';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 function Player() {
 
@@ -39,7 +40,7 @@ function Player() {
   }, [movieId])
   return (
     <div className="player">
-      <img src={back_arrow_icon} alt="" />
+      <Link to ={`/`}><img src={back_arrow_icon} alt=""/></Link>
       <iframe width='90%' height='90%' src={`https://www.youtube.com/embed/${videoData.key}`} title='trailer' allowFullScreen></iframe>
       <div className="player-info">
         <p>{moment(videoData.published_at).fromNow()}</p>
